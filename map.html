@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Bos76 Tactical Map</title>
+</head>
+<script src = "https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<body>
+    <div id = "interactive">
+        <img src="res/map.jpg">
+    </div>
+</body>
+
+</html>
+
+<script>
+var X;
+var Y;
+var INS = 0;
+
+    $("#interactive").click(function(e){
+        X = event.pageX;
+        Y = event.pageY;
+        if(INS==0)
+        {
+            $("#interactive").append("<div id = 'input' style='position:absolute; top:"+(Y-10)+"px; left:"+(X-10)+"px; border: red solid 2px; width:300px; heigth:300px'><textarea id='input_data' style='' rows='4' cols='30'></textarea><div id='input_btn' onclick='input_make()' style='position:absolute; right:-20px; bottom:-20px; border:2px solid red; width:25px; height:25px; border-radius:12px'</div></div>");
+            INS = 1;
+        }
+        
+    });
+
+    function input_make(){
+
+        console.log($("#input_data").val());
+        $("#input").remove();
+        window.setTimeout(function(){INS = 0;}, 300);
+
+    }
+   
+
+</script>
